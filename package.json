@@ -1,6 +1,6 @@
 {
   "name": "luffy-echo",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "使用kafka进行广播,使用socket推送消息,使用echo接收消息",
   "main": "dist/echo.js",
   "scripts": {
@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-plugin-transform-object-assign": "^6.8.0",
     "webpack": "4.19.1",
     "webpack-cli": "2.0.9"
   },
