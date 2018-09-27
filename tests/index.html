@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>测试</title>
+</head>
+<body>
+<script src="../dist/echo.js"></script>
+<script>
+    var echo = new Echo({appid: 1, appsecret: 'test01', host: 'ws://192.168.10.10:8081'});
+    echo.channel('order').listen('make', function(e) {
+        console.log(e);
+        alert('生成订单');
+    }).listen('send', function(e) {
+        console.log(e);
+        alert('发货');
+    });
+</script>
+</body>
+</html>
