@@ -1,6 +1,6 @@
 {
   "name": "luffy-echo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "使用kafka进行广播,使用socket推送消息,使用echo接收消息",
   "main": "dist/echo.js",
   "scripts": {
