@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: './src/echo.js',
-    devtool: 'inline-source-map',
+    devtool: 'none',
     output: {
         filename: 'echo.js',
         path: path.resolve(__dirname, 'dist')
