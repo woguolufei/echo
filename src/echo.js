@@ -1,6 +1,6 @@
 import {SocketConnector} from './connector/socket-connector'
 
-class Echo {
+export class Echo {
     constructor(options) {
         this.options = options;
 
@@ -13,4 +13,4 @@ class Echo {
 
 }
 
-module.exports = Echo;
+window.Echo = Echo;

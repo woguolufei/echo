@@ -14,22 +14,22 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/-/user/org.couchdb.user:woguolufei: conflict
-      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:65656:18)
-      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:134675:22)
+  Error: canceled
+      at Interface.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:131036:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:774:16)
+      at ReadStream.onkeypress (readline.js:158:10)
       at emitTwo (events.js:126:13)
-      at Request.emit (events.js:214:7)
-      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:135658:10)
-      at emitOne (events.js:116:13)
-      at Request.emit (events.js:211:7)
-      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:135578:12)
-      at Object.onceWrapper (events.js:313:30)
-      at emitNone (events.js:111:20)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1010:36)
 
 npm manifest: 
   {
     "name": "luffy-echo",
-    "version": "1.0.4",
+    "version": "1.0.07",
     "description": "使用kafka进行广播,使用socket推送消息,使用echo接收消息",
     "main": "dist/echo.js",
     "scripts": {
@@ -41,7 +41,6 @@ npm manifest:
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "babel-plugin-transform-object-assign": "^6.8.0",
       "webpack": "4.19.1",
       "webpack-cli": "2.0.9"
     },
@@ -858,12 +857,6 @@ Lockfile:
     resolved "http://registry.npm.taobao.org/babel-plugin-transform-flow-strip-types/download/babel-plugin-transform-flow-strip-types-6.22.0.tgz#84cb672935d43714fdc32bce84568d87441cf7cf"
     dependencies:
       babel-plugin-syntax-flow "^6.18.0"
-      babel-runtime "^6.22.0"
-  
-  babel-plugin-transform-object-assign@^6.8.0:
-    version "6.22.0"
-    resolved "http://registry.npm.taobao.org/babel-plugin-transform-object-assign/download/babel-plugin-transform-object-assign-6.22.0.tgz#f99d2f66f1a0b0d498e346c5359684740caa20ba"
-    dependencies:
       babel-runtime "^6.22.0"
   
   babel-plugin-transform-object-rest-spread@^6.22.0:

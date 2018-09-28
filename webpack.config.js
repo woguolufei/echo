@@ -7,7 +7,6 @@ module.exports = {
         filename: 'echo.js',
         path: path.resolve(__dirname, 'dist')
     },
-    plugins: ["transform-object-assign"],
     watchOptions: {
         aggregateTimeout: 300,
         poll: 1000

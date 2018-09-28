@@ -28,7 +28,7 @@ echo.channel('order').listen('new', (e) => {
     console.log(e);
     alert('生成新的订单');
 }).listen('send', (e) => {
-      console.log(e);
-      alert('已发货);
+    console.log(e);
+    alert('已发货);
   });
 ```
