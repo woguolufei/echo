@@ -10,7 +10,4 @@ export class Echo {
     channel(channel) {
         return this.connector.channel(channel);
     }
-
 }
-
-window.Echo = Echo;

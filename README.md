@@ -12,12 +12,10 @@ npm install lufyy-echo
 ### 初始化
 
 ``` js
-import Echo from 'luffy-echo';
+import {Echo} from 'luffy-echo';
 
 window.echo = new Echo({
-    appid: 1,
-    appsecret: 'test01',
-    host: 'ws://192.168.10.10:8081'
+    host: 'ws://192.168.10.10:8081/a82393d886a0e6ddfae5'
 })
 
 ```
