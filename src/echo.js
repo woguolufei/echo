@@ -11,3 +11,5 @@ export class Echo {
         return this.connector.channel(channel);
     }
 }
+
+window.Echo = Echo;
