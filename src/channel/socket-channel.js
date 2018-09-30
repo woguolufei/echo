@@ -1,23 +1,21 @@
-export class SocketChannel {
+import {Channel} from './channel'
+
+export class SocketChannel extends Channel {
 
     /**
      * @param connector
      * @param channel
      */
     constructor(connector, channel) {
-        this.connector = connector;
-        this.channel = channel;
-
-        this.events = {};
+        super(connector, channel);
     }
 
-    listen(event, callback) {
-        this.events[event] = (e) => {
-            if (e.channel === this.channel && e.event === event) {
-                callback(e.data)
-            }
-        };
-        return this;
+    send() {
+        //已授权
+        if (this.connector.state == 1) {
+            this._send()
+        }
+
     }
 
 }

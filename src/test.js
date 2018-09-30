@@ -1,7 +1,9 @@
 import {Echo} from './echo'
 
+window.user = {id: 2, name: 'test02'};
+
 window.Echo = new Echo({
-    host: 'ws://toapi.staff.xdf.cn:9502/a82393d886a0e6ddfae5'
+    host: 'ws://192.168.10.10:8081/a82393d886a0e6ddfae5'
 })
 
 window.Echo.channel('order').listen('new', (e) => {
@@ -10,8 +12,8 @@ window.Echo.channel('order').listen('new', (e) => {
     alert('make');
 });
 
-window.Echo.channel('order1').listen('new', (e) => {
-    alert('new1');
-}).listen('make', (e) => {
-    alert('make1');
+window.Echo.private('user.1').listen('a', (e) => {
+    alert('aaa');
+}).listen('b', (e) => {
+    alert('bbb');
 });

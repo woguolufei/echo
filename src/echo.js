@@ -10,6 +10,10 @@ export class Echo {
     channel(channel) {
         return this.connector.channel(channel);
     }
+
+    private(channel) {
+        return this.connector.privateChannel(channel);
+    }
 }
 
 window.Echo = Echo;

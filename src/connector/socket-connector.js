@@ -1,4 +1,5 @@
 import {SocketChannel} from '../channel/socket-channel'
+import {SocketPrivateChannel} from '../channel/socket-private-channel'
 import {uuid} from "../util/uuid"
 
 export class SocketConnector {
@@ -14,6 +15,12 @@ export class SocketConnector {
     }
 
     _init() {
+        /**
+         * 0 初始化值  1授权成功 -1授权失败
+         * @type {number}
+         */
+        this.state = 0;
+
         //订阅的频道
         this.channels = {};
 
@@ -69,17 +76,14 @@ export class SocketConnector {
             }
 
             if (e.status === 200) {
+                //授权成功
+                this.state = 1;
+
                 for (let i in this.channels) {
                     let channel = this.channels[i];
 
-                    for (let j in channel.events) {
-                        this.send({
-                            uuid: this.getUuid(),
-                            channel: channel.channel,
-                            event: j
-                        }, channel.events[j])
-                    }
-
+                    //发送订阅信息
+                    this.channels[i].send();
                 }
             }
         }
@@ -100,5 +104,12 @@ export class SocketConnector {
         }
 
         return this.channels[channel];
+    }
+
+    privateChannel(channel) {
+        if (this.channels['private-' + channel] === undefined) {
+            this.channels['private-' + channel] = new SocketPrivateChannel(this, channel);
+        }
+        return this.channels['private-' + channel];
     }
 }
