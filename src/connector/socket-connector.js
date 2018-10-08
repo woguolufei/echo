@@ -1,5 +1,7 @@
 import {SocketChannel} from '../channel/socket-channel'
 import {SocketPrivateChannel} from '../channel/socket-private-channel'
+import {SocketPresenceChannel} from '../channel/socket-presence-channel'
+
 import {uuid} from "../util/uuid"
 
 export class SocketConnector {
@@ -108,8 +110,15 @@ export class SocketConnector {
 
     privateChannel(channel) {
         if (this.channels['private-' + channel] === undefined) {
-            this.channels['private-' + channel] = new SocketPrivateChannel(this, channel);
+            this.channels['private-' + channel] = new SocketPrivateChannel(this, 'private-' + channel);
         }
         return this.channels['private-' + channel];
+    }
+
+    presenceChannel(channel) {
+        if (this.channels['presence-' + channel] === undefined) {
+            this.channels['presence-' + channel] = new SocketPresenceChannel(this, 'presence-' + channel);
+        }
+        return this.channels['presence-' + channel];
     }
 }

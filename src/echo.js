@@ -14,6 +14,10 @@ export class Echo {
     private(channel) {
         return this.connector.privateChannel(channel);
     }
+
+    presence(channel) {
+        return this.connector.presenceChannel(channel);
+    }
 }
 
 window.Echo = Echo;

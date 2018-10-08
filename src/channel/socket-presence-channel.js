@@ -2,7 +2,7 @@ import {Channel} from './channel'
 import axios from 'axios'
 
 
-export class SocketPrivateChannel extends Channel {
+export class SocketPresenceChannel extends Channel {
 
     /**
      * @param connector
