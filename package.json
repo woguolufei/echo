@@ -19,7 +19,8 @@
     "webpack-cli": "2.0.9"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "qs": "^6.5.2"
   },
   "repository": {
     "type": "git",

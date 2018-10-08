@@ -11,11 +11,6 @@ export class SocketChannel extends Channel {
     }
 
     send() {
-        //已授权
-        if (this.connector.state == 1) {
-            this._send()
-        }
-
+        this._send()
     }
-
 }

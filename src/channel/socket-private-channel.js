@@ -1,5 +1,7 @@
-import {Channel} from './channel'
-import axios from 'axios'
+import {Channel} from './channel';
+import axios from 'axios';
+
+let qs = require('qs');
 
 
 export class SocketPrivateChannel extends Channel {
@@ -12,38 +14,23 @@ export class SocketPrivateChannel extends Channel {
         super(connector, channel);
     }
 
-    send() {
-        //已授权且是频道验证通过
-        if (this.connector.state === 1) {
-            this.auth();
-        }
-
+    _send() {
+        this.connector.send({
+            event: 'subscribe',
+            data: {
+                channel: this.channel,
+                auth: this.auth
+            }
+        });
     }
 
-    auth() {
-        /**
-         * 私有频道验证状态码 0 未验证 1验证通过 -1验证失败
-         * @type {*|number}
-         */
-        this.status = this.status || 0;
-
-        if (this.status === 0) {
-            let o = this;
-            axios.get('http://tests.test/api/auth').then((e) => {
-                o._send();
-            }).catch((e) => {
-                console.error('私有频道权限不足!');
-            });
+    send() {
+        if (this.auth === undefined) {
+            this.authorization()
+            return;
         }
 
-        if (this.status === 1) {
-            this._send();
-        }
-
-        if (this.status === -1) {
-            console.error('私有频道权限不足!');
-        }
-
+        this._send()
     }
 
 }

@@ -15,8 +15,16 @@ export class Echo {
         return this.connector.privateChannel(channel);
     }
 
-    presence(channel) {
+    join(channel) {
         return this.connector.presenceChannel(channel);
+    }
+
+    /**
+     * 退出频道,暂留
+     * @param channel
+     */
+    leave(channel) {
+
     }
 }
 

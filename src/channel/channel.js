@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export class Channel {
 
     /**
@@ -13,33 +15,56 @@ export class Channel {
 
     listen(event, callback) {
         this.events[event] = callback;
-        this.send();
 
         return this;
     }
 
-    /**
-     * 发送订阅信息到socket服务器上
-     * @private
-     */
     _send() {
-        for (let i in this.events) {
+        this.connector.send({
+            event: 'subscribe',
+            data: {
+                channel: this.channel
+            }
+        });
+    }
 
-            let channel = this.channel;
-            let event = this.events[i];
+    accept(event, data) {
+        //订阅成功
+        if (event == 'subscribe_success') {
+            this.subscribeSuccessCallBack(event, data);
 
-            this.connector.send({
-                uuid: this.connector.getUuid(),
-                channel: this.channel,
-                event: i
-            }, (e) => {
-                if (e.channel === channel && e.event === i) {
-                    event(e.data)
-                }
-            })
+            return;
+        }
 
-            delete this.events[i];
+        //订阅成功
+        if (event == 'subscribe_error') {
+            console.error(data.error);
+            return;
+        }
+
+        if (this.events[event] !== undefined) {
+            this.events[event](data)
         }
     }
 
+    authorization() {
+        axios.get('http://tests.test/api/auth', {
+            params: {
+                id: this.connector.options.user.id
+            }
+        }).then((e) => {
+            this.auth = e.data.auth;
+            this._send();
+        }).catch((e) => {
+            console.error('私有频道权限不足!');
+        });
+
+    }
+
+    /**
+     * 订阅成功回调
+     */
+    subscribeSuccessCallBack(event, data) {
+
+    }
 }
