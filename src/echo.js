@@ -1,10 +1,9 @@
-import {SocketConnector} from './connector/socket-connector'
+import {PusherConnector} from "./connector/pusher_connector";
 
 export class Echo {
     constructor(options) {
         this.options = options;
-
-        this.connector = new SocketConnector(options);
+        this.connector = new PusherConnector(this.options.app_key, this.options);
     }
 
     channel(channel) {

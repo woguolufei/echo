@@ -1,54 +1,30 @@
-import {Channel} from './channel'
-import axios from 'axios'
+import {Channel} from "./channel";
 
-
-export class SocketPresenceChannel extends Channel {
+export class PusherPresenceChannel extends Channel {
 
     /**
-     * @param connector
+     * @param pusher
      * @param channel
      */
-    constructor(connector, channel) {
-        super(connector, channel);
-    }
-
-    _send() {
-        this.connector.send({
-            event: 'subscribe',
-            data: {
-                channel: this.channel,
-                auth: this.auth,
-                channel_data: user
-            }
-        });
-    }
-
-    send() {
-        if (this.auth === undefined) {
-            this.authorization()
-            return;
-        }
-
-        this._send()
+    constructor(pusher, name) {
+        super(pusher, name);
     }
 
     here(callback) {
-        this.hereCallBack = callback;
+        let back = (e) => {
+            callback(e.presence)
+        }
+        this.on('pusher_internal:subscription_succeeded', back);
         return this;
     }
 
-    subscribeSuccessCallBack(event, data) {
-        this.hereCallBack(data.presence)
-    }
-
     joining(callback) {
-        this.events['member_add'] = callback;
+        this.on('pusher_internal:member_added', callback);
         return this;
     }
 
     leaving(callback) {
-        this.events['member_leave'] = callback;
+        this.on('pusher_internal:member_removed', callback);
         return this;
     }
-
 }

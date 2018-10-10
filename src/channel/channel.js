@@ -1,70 +1,46 @@
-import axios from "axios";
-
 export class Channel {
+    constructor(pusher, name) {
+        this.pusher = pusher;
+        this.name = name;
 
-    /**
-     * @param connector
-     * @param channel
-     */
-    constructor(connector, channel) {
-        this.connector = connector;
-        this.channel = channel;
+        this.subscribe();
+    }
 
-        this.events = {};
+    subscribe() {
+        this.subscription = this.pusher.subscribe(this.name);
+    }
+
+    unsubscribe() {
+        this.pusher.unsubscribe(this.name);
     }
 
     listen(event, callback) {
-        this.events[event] = callback;
+        this.on(event, callback);
 
         return this;
     }
 
-    _send() {
-        this.connector.send({
-            event: 'subscribe',
-            data: {
-                channel: this.channel
-            }
+    stopListening(event) {
+        this.subscription.unbind(event);
+
+        return this;
+    }
+
+    on(event, callback) {
+        this.subscription.bind(event, callback);
+
+        return this;
+    }
+
+    whisper(event, data) {
+        this.pusher.send({
+            channel: this.name,
+            data: data,
+            event: 'client-' + event
         });
     }
 
-    accept(event, data) {
-        //订阅成功
-        if (event == 'subscribe_success') {
-            this.subscribeSuccessCallBack(event, data);
-
-            return;
-        }
-
-        //订阅成功
-        if (event == 'subscribe_error') {
-            console.error(data.error);
-            return;
-        }
-
-        if (this.events[event] !== undefined) {
-            this.events[event](data)
-        }
-    }
-
-    authorization() {
-        axios.get('http://tests.test/api/auth', {
-            params: {
-                id: this.connector.options.user.id
-            }
-        }).then((e) => {
-            this.auth = e.data.auth;
-            this._send();
-        }).catch((e) => {
-            console.error('私有频道权限不足!');
-        });
-
-    }
-
-    /**
-     * 订阅成功回调
-     */
-    subscribeSuccessCallBack(event, data) {
-
+    listenForWhisper(event, callback) {
+        this.on('client-' + event, callback);
     }
 }

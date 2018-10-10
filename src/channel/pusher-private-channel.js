@@ -1,6 +1,6 @@
 import {Channel} from "./channel";
 
-export class PusherChannel extends Channel {
+export class PusherPrivateChannel extends Channel {
 
     /**
      * @param pusher
@@ -9,6 +9,5 @@ export class PusherChannel extends Channel {
     constructor(pusher, name) {
         super(pusher, name);
     }
-
 
 }
