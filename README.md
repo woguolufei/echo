@@ -93,4 +93,4 @@ Echo.private('chat')
 ![Image text](https://github.com/woguolufei/echo/blob/master/doc/pusher.png)
 
 ###socket服务配置
-https://github.com/woguolufei/echo/blob/master/doc/socket.doc
+https://github.com/woguolufei/echo/blob/master/doc/socket.md
