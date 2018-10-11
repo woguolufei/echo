@@ -10,7 +10,6 @@ npm install lufyy-echo
 ## 使用
 
 ### 初始化
-token由jwt生成
 ``` js
 import {Echo} from 'luffy-echo';
 
@@ -37,7 +36,6 @@ Echo.channel('order').listen('new', (e) => {
 ```
 
 ###private频道示例
- new Echo的时候需传入user 信息
 ``` js
 Echo.private('order.1').listen('new', (e) => {
     console.log(e);
@@ -47,7 +45,6 @@ Echo.private('order.1').listen('new', (e) => {
 ```
 
 ###presence频道示例
- new Echo的时候需传入user 信息
 ``` js
 window.Echo.join(`chat.1`)
     .here((users) => {
@@ -91,3 +88,4 @@ Echo.private('chat')
     Echo.subscribe('private-order');
     Echo.subscribe('presence-order');
 ```
+
