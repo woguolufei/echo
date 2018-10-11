@@ -94,3 +94,7 @@ Echo.private('chat')
 
 ###socket服务配置
 https://github.com/woguolufei/echo/blob/master/doc/socket.md
+
+## License
+
+[ISC license](https://opensource.org/licenses/ISC).

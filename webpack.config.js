@@ -3,7 +3,9 @@ const path = require('path');
 module.exports = {
     entry: {
         echo: './src/echo.js',
-        test: './src/test.js'
+        app_a_user_1: './src/app_a_user_1.js',
+        app_a_user_2: './src/app_a_user_2.js',
+        app_b_user_1: './src/app_b_user_1.js'
     },
     devtool: 'inline-source-map',
     output: {

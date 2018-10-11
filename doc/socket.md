@@ -131,8 +131,8 @@
     event : client-typing,
     data :{
         name : luffy,
-        channel : private-chat
-    }
+    },
+    channel : private-chat
 }
 ````
 
