@@ -1,35 +1,29 @@
 import {Echo} from './echo'
 
 window.Echo = new Echo('a82393d886a0e6ddfae5', {
-    host: 'ws://192.168.10.10:8081',
+    host: 'ws://10.202.203.222:8091',
     auth: {
+        method: 'post',
         url: 'http://tests.test/api/pusher/auth',
         headers: {
             'Accept': 'application/json',
-            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZXN0cy50ZXN0XC9hcGlcL3B1c2hlclwvYXV0aCIsImlhdCI6MTUzOTE2ODAwMSwiZXhwIjoxNTM5MTcxNjAxLCJuYmYiOjE1MzkxNjgwMDEsImp0aSI6IktMOHdsMG9Gb2FNZzA3UHkiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.nuSaYl3mvmTx-5YRQEviMqpry6gt-tWZig1gho-jlC4',
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZXN0cy50ZXN0IiwiaWF0IjoxNTM5MjIzNDY3LCJleHAiOjE1MzkyMjcwNjcsIm5iZiI6MTUzOTIyMzQ2NywianRpIjoiQlFHWm1KWlo1YVF6dTVCWiIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.oF0yCa9akoSlBkukEimsTb6I37p0wPIpSJgdKtd68ls',
         },
         params: {}
     },
 })
 
-/*window.Echo.channel('order').listen('new', (e) => {
+window.Echo.channel('order').listen('new', (e) => {
     console.log(e)
-    alert('new');
 }).listen('make', (e) => {
-    alert('make');
-});*/
+});
 
-/*window.Echo.channel('order1').listen('new', (e) => {
-    alert('new');
-}).listen('make', (e) => {
-    alert('make');
-});*/
 
-/*window.Echo.private('user.1').listen('a', (e) => {
+window.Echo.private('user.1').listen('a', (e) => {
     alert('aaa');
 }).listen('b', (e) => {
     alert('bbb');
-});*/
+});
 
 window.Echo.join(`chat.1`)
     .here((users) => {

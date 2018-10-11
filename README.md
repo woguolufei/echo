@@ -14,7 +14,7 @@ npm install lufyy-echo
 import {Echo} from 'luffy-echo';
 
 window.Echo = new Echo('a82393d886a0e6ddfae5', {
-    host: 'ws://192.168.10.10:8081',
+    host: 'ws://10.202.203.222:8091',
     auth: {
         url: 'http://tests.test/api/pusher/auth',
         headers: {
@@ -89,3 +89,8 @@ Echo.private('chat')
     Echo.subscribe('presence-order');
 ```
 
+###示意图
+![Image text](https://github.com/woguolufei/echo/blob/master/doc/pusher.png)
+
+###socket服务配置
+https://github.com/woguolufei/echo/blob/master/doc/socket.doc

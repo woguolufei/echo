@@ -34,8 +34,9 @@ export class Channel {
 
     whisper(event, data) {
         this.pusher.send({
-            channel: this.name,
-            data: data,
+            data: Object.assign(data, {
+                channel: this.name
+            }),
             event: 'client-' + event
         });
     }
