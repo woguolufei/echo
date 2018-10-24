@@ -11,17 +11,10 @@
 }
 ```
 
-当socket open的时候会向服务器发送
-````
-{
-    event : authorization
-}
-````
-
 服务器验证通过返回
 ````
 {
-    event : authorization_success,
+    event : connected,
     data :{
         activity_timeout : 120,
         socket_id : 1539222641
@@ -32,7 +25,7 @@
 服务器验证失败返回
 ````
 {
-    event : authorization_error,
+    event : connection_failed,
     data :{
         error : 您没有被授权
     }

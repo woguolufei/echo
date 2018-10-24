@@ -36,7 +36,7 @@ export class Echo {
      * @param channel
      */
     leave(channel) {
-
+        
     }
 }
 

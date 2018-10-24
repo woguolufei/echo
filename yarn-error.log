@@ -29,7 +29,7 @@ Trace:
 npm manifest: 
   {
     "name": "luffy-echo",
-    "version": "1.0.16",
+    "version": "1.0.21",
     "description": "使用kafka进行广播,使用socket推送消息,使用echo接收消息",
     "main": "dist/echo.js",
     "scripts": {
@@ -1997,8 +1997,8 @@ Lockfile:
       yallist "^2.1.2"
   
   luffy-pusher@^1.0.1:
-    version "1.0.20"
-    resolved "https://registry.yarnpkg.com/luffy-pusher/-/luffy-pusher-1.0.20.tgz#298c853bfaa97941784caaf7c50c6504ad1afdec"
+    version "1.1.3"
+    resolved "https://registry.yarnpkg.com/luffy-pusher/-/luffy-pusher-1.1.3.tgz#d05284059763ee78751368f665a49893b8756c3f"
     dependencies:
       axios "^0.18.0"
   
