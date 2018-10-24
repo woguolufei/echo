@@ -89,6 +89,11 @@ Echo.private('chat')
     Echo.subscribe('presence-order');
 ```
 
+###取消订阅
+```js
+Echo.leave('order');//将同时取消order,private-order,presence-order
+```
+
 ###示意图
 ![Image text](https://github.com/woguolufei/echo/blob/master/doc/pusher.png)
 

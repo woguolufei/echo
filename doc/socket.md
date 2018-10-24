@@ -89,7 +89,7 @@
 ````
 {
     event : pusher_internal:subscription_succeeded,
-    data : {presence : channel_datas},
+    data : {channel_datas},
     channel : presence-chat.1
 }
 ````
@@ -135,6 +135,16 @@
     event : client-typing,
     data : {name : luffy},
     channel : private-chat
+}
+````
+
+取消订阅向服发送
+````
+{
+    event : unsubscribe,
+    data :{
+        channel : order
+    }
 }
 ````
 

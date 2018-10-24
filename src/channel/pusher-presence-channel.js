@@ -12,7 +12,7 @@ export class PusherPresenceChannel extends Channel {
 
     here(callback) {
         let back = (e) => {
-            callback(e.presence)
+            callback(e)
         }
         this.on('subscription_succeeded', back);
         return this;
