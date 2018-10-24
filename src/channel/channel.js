@@ -38,9 +38,13 @@ export class Channel {
             data: data,
             event: 'client-' + event
         });
+
+        return this;
     }
 
     listenForWhisper(event, callback) {
         this.on('client-' + event, callback);
+
+        return this;
     }
 }
