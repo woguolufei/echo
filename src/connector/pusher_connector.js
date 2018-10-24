@@ -31,15 +31,11 @@ export class PusherConnector {
         return this.channels['presence-' + channel];
     }
 
-    leave(name) {
-        let channels = [name, 'private-' + name, 'presence-' + name];
+    unsubscribe(name) {
+        if (this.channels[name]) {
+            this.channels[name].unsubscribe();
 
-        channels.forEach((name, index) => {
-            if (this.channels[name]) {
-                this.channels[name].unsubscribe();
-
-                delete this.channels[name];
-            }
-        });
+            delete this.channels[name];
+        }
     }
 }

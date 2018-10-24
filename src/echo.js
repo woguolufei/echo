@@ -35,8 +35,8 @@ export class Echo {
      * 退出频道,暂留
      * @param channel
      */
-    leave(channel) {
-        this.connector.leave(channel);
+    unsubscribe(channel) {
+        this.connector.unsubscribe(channel);
     }
 }
 

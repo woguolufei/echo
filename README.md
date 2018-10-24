@@ -91,7 +91,7 @@ Echo.private('chat')
 
 ###取消订阅
 ```js
-Echo.leave('order');//将同时取消order,private-order,presence-order
+Echo.unsubscribe('order');//将同时取消order,private-order,presence-order
 ```
 
 ###示意图
