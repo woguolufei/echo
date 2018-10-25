@@ -94,6 +94,11 @@ Echo.private('chat')
 Echo.unsubscribe('order');//将同时取消order,private-order,presence-order
 ```
 
+###监听事件
+```js
+Echo.listen('error', fun);//error 错误,connected连接成功
+```
+
 ###示意图
 ![Image text](https://github.com/woguolufei/echo/blob/master/doc/pusher.png)
 

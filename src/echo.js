@@ -38,6 +38,12 @@ export class Echo {
     unsubscribe(channel) {
         this.connector.unsubscribe(channel);
     }
+
+    listen(event, callback) {
+        this.connector.bind(event, callback);
+
+        return this;
+    }
 }
 
 window.Echo = Echo;

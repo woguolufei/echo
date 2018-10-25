@@ -38,4 +38,9 @@ export class PusherConnector {
             delete this.channels[name];
         }
     }
+
+    bind(event, callback) {
+        this.pusher.bind(event, callback);
+        return this;
+    }
 }

@@ -1,6 +1,6 @@
 import {Echo} from './echo'
 
-window.Echo = new Echo('a82393d886a0e6ddfae5', {
+let echo = new Echo('a82393d886a0e6ddfae5', {
     host: 'ws://192.168.10.10:8081',
     auth: {
         method: 'post',
@@ -19,14 +19,13 @@ window.Echo = new Echo('a82393d886a0e6ddfae5', {
 });*/
 
 
-
 /*window.Echo.private('user.1').listen('a', (e) => {
     alert('aaa');
 }).listen('b', (e) => {
     alert('bbb');
 });*/
 
-window.Echo.join(`chat.1`)
+/*window.Echo.join(`chat.1`)
     .here((users) => {
         console.log('全部人员');
         console.log(users)
@@ -40,4 +39,4 @@ window.Echo.join(`chat.1`)
         console.log(user);
     }).listen('NewMessage', (e) => {
     console.log(e);
-});
+});*/
